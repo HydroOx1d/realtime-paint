@@ -33,7 +33,7 @@ export default class Brush extends Tool {
         radius = 0
       }
 
-      this.draw(currentX, currentY, radius)
+      this.draw(this.startX, this.startY, radius)
     }
   }
 

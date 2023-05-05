@@ -7,11 +7,11 @@ import rect from '@/assets/img/rect.svg'
 import undo from '@/assets/img/undo.svg'
 import redo from '@/assets/img/redo.svg'
 import save from '@/assets/img/save.svg'
-import toolbarState from '../../store/toolbarState'
-import Brush from '../../tools/Brush'
-import canvasState from '../../store/canvasState'
-import Rect from '../../tools/Rect'
-import Circle from '../../tools/Circle'
+import toolbarState from '@/store/toolbarState'
+import Brush from '@/tools/Brush'
+import canvasState from '@/store/canvasState'
+import Rect from '@/tools/Rect'
+import Circle from '@/tools/Circle'
 
 const ToolBar = () => {
   return (

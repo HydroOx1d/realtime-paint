@@ -7,11 +7,14 @@ import rect from '@/assets/img/rect.svg'
 import undo from '@/assets/img/undo.svg'
 import redo from '@/assets/img/redo.svg'
 import save from '@/assets/img/save.svg'
+import toolbarState from '../../store/toolbarState'
+import Brush from '../../tools/Brush'
+import canvasState from '../../store/canvasState'
 
 const ToolBar = () => {
   return (
     <div className='toolbar'>
-      <button className='toolbar__btn brush'>
+      <button className='toolbar__btn brush' onClick={() => toolbarState.setTool(new Brush(canvasState.canvas))}>
         <img src={brush} alt="brush" />
       </button>
       <button className='toolbar__btn brush'>

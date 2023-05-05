@@ -11,6 +11,7 @@ import toolbarState from '../../store/toolbarState'
 import Brush from '../../tools/Brush'
 import canvasState from '../../store/canvasState'
 import Rect from '../../tools/Rect'
+import Circle from '../../tools/Circle'
 
 const ToolBar = () => {
   return (
@@ -21,7 +22,7 @@ const ToolBar = () => {
       <button className='toolbar__btn rect' onClick={() => toolbarState.setTool(new Rect(canvasState.canvas))}>
         <img src={rect} alt="rect" />
       </button>
-      <button className='toolbar__btn circle'>
+      <button className='toolbar__btn circle' onClick={() => toolbarState.setTool(new Circle(canvasState.canvas))}>
         <img src={circle} alt="circle" />
       </button>
       <button className='toolbar__btn eraser'>

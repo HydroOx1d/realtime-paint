@@ -12,6 +12,7 @@ import Brush from '@/tools/Brush'
 import canvasState from '@/store/canvasState'
 import Rect from '@/tools/Rect'
 import Circle from '@/tools/Circle'
+import Line from '../../tools/Line'
 
 const ToolBar = () => {
   return (
@@ -28,7 +29,7 @@ const ToolBar = () => {
       <button className='toolbar__btn eraser'>
         <img src={eraser} alt="eraser" />
       </button>
-      <button className='toolbar__btn line'>
+      <button className='toolbar__btn line' onClick={() => toolbarState.setTool(new Line(canvasState.canvas))}>
         <img src={line} alt="line" />
       </button>
       <input type="color" style={{marginLeft: 15}}/>

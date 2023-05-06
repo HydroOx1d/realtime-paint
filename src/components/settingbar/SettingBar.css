@@ -8,3 +8,11 @@
   box-shadow: 0px 4px 5px gray;
   top: 40px; 
 }
+
+.settingbar__name {
+  margin: 0px 10px 0px 10px;
+}
+
+.settingbar__line-width {
+  width: 50px;
+}

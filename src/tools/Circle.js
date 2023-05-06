@@ -27,12 +27,13 @@ export default class Brush extends Tool {
     if(this.mouseDown) {
       let currentX = e.pageX - e.target.offsetLeft;
       let currentY = e.pageY - e.target.offsetTop;
-      let radius = ((currentX - this.startX) + (currentY - this.startY)) / 0.5;
+      let radius = ((currentX - this.startX) + (currentY - this.startY)) / 2;
 
-      if(radius <= 0) {
+      if(radius < 0) {
         radius = 0
+        return;
       }
-
+      
       this.draw(this.startX, this.startY, radius)
     }
   }

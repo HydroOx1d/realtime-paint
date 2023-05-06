@@ -18,20 +18,16 @@ export default class Eraser extends Tool {
 
   mouseDownHandler(e) {
     this.mouseDown = true
-    this.ctx.beginPath()
     this.ctx.moveTo(e.pageX - e.target.offsetLeft, e.pageY - e.target.offsetTop)
   }
 
   mouseMoveHandler(e) {
     if(this.mouseDown) {
-      this.draw(e.pageX - e.target.offsetLeft, e.pageY - e.target.offsetTop)
+      this.clear(e.pageX - e.target.offsetLeft, e.pageY - e.target.offsetTop, 10, 10)
     }
   }
 
-  draw(x, y) {
-    this.ctx.lineWidth = 5
-    this.ctx.lineTo(x, y)
-    this.ctx.stroke()
-    this.ctx.strokeStyle = '#ffffff'
+  clear(x, y, w, h) {
+    this.ctx.clearRect(x - (w / 2), y - (h / 2), w, h)
   }
 }

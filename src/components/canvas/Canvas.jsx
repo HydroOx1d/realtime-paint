@@ -12,7 +12,7 @@ const Canvas = observer(() => {
 
   return (
     <div className='canvas'>
-      <canvas ref={canvasRef} width={600} height={400}/>
+      <canvas onMouseDown={() => canvasState.addToUndo(canvasRef.current.toDataURL())} ref={canvasRef} width={600} height={400}/>
     </div>
   )
 })

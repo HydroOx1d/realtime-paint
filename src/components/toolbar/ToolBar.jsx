@@ -39,10 +39,10 @@ const ToolBar = () => {
         <img src={line} alt="line" />
       </button>
       <input type="color" style={{marginLeft: 15}} onChange={e => changeColor(e.target.value)}/>
-      <button className='toolbar__btn undo'>
+      <button className='toolbar__btn undo' onClick={() => canvasState.undo()}>
         <img src={undo} alt="undo" />
       </button>
-      <button className='toolbar__btn redo'>
+      <button className='toolbar__btn redo' onClick={() => canvasState.redo()}>
         <img src={redo} alt="redo" />
       </button>
       <button className='toolbar__btn save'>

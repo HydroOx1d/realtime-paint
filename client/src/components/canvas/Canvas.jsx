@@ -1,12 +1,13 @@
 import React from 'react'
 import { observer } from 'mobx-react-lite'
 import './Canvas.css'
-import canvasState from '../../store/canvasState'
+import canvasState from '@/store/canvasState'
 import { Modal, Button, } from "react-bootstrap"
 import { useParams } from 'react-router-dom'
-import Brush from '../../tools/Brush'
-import toolbarState from '../../store/toolbarState'
-import Rect from '../../tools/Rect'
+import Brush from '@/tools/Brush'
+import toolbarState from '@/store/toolbarState'
+import Rect from '@/tools/Rect'
+import axios from 'axios'
 
 const Canvas = observer(() => {
   const canvasRef = React.useRef();
@@ -16,6 +17,15 @@ const Canvas = observer(() => {
 
   React.useEffect(() => {
     canvasState.setCanvas(canvasRef.current)
+    axios.get(`http://localhost:3001/images?id=${id}`).then(res => {
+      const ctx = canvasRef.current.getContext('2d')
+      const img = new Image()
+      img.src = res.data.image
+      img.onload = () => {
+        ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height)
+        ctx.drawImage(img, 0, 0, canvasRef.current.width, canvasRef.current.height)
+      }
+    })
   }, [])
 
   React.useEffect(() => {
@@ -52,6 +62,9 @@ const Canvas = observer(() => {
 
   const handleMousedown = () => {
     canvasState.addToUndo(canvasRef.current.toDataURL())
+    axios.post(`http://localhost:3001/images?id=${id}`, {image: canvasRef.current.toDataURL()})
+          .then((res) => console.log(res.data))
+          .catch(err => console.log(err))
   }
 
   const handleUsername = () => {

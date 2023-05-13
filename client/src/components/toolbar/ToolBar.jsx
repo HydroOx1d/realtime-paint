@@ -12,8 +12,8 @@ import Brush from '@/tools/Brush'
 import canvasState from '@/store/canvasState'
 import Rect from '@/tools/Rect'
 import Circle from '@/tools/Circle'
-import Line from '../../tools/Line'
-import Eraser from '../../tools/Eraser'
+import Line from '@/tools/Line'
+import Eraser from '@/tools/Eraser'
 
 const ToolBar = () => {
   const changeColor = (color) => {
@@ -23,6 +23,7 @@ const ToolBar = () => {
 
   const downloadImage = () => {
     const a = document.createElement('a')
+    console.log(canvasState.canvas.toDataURL())
     a.href = canvasState.canvas.toDataURL()
     a.download = canvasState.sessionid + '.jpg'
     document.body.appendChild(a)

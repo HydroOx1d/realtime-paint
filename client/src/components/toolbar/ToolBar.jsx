@@ -23,10 +23,10 @@ const ToolBar = () => {
 
   return (
     <div className='toolbar'>
-      <button className='toolbar__btn brush' onClick={() => toolbarState.setTool(new Brush(canvasState.canvas))}>
+      <button className='toolbar__btn brush' onClick={() => toolbarState.setTool(new Brush(canvasState.canvas, canvasState.socket, canvasState.sessionid))}>
         <img src={brush} alt="brush" />
       </button>
-      <button className='toolbar__btn rect' onClick={() => toolbarState.setTool(new Rect(canvasState.canvas))}>
+      <button className='toolbar__btn rect' onClick={() => toolbarState.setTool(new Rect(canvasState.canvas, canvasState.socket, canvasState.sessionid))}>
         <img src={rect} alt="rect" />
       </button>
       <button className='toolbar__btn circle' onClick={() => toolbarState.setTool(new Circle(canvasState.canvas))}>

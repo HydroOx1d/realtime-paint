@@ -21,6 +21,15 @@ const ToolBar = () => {
     toolbarState.setFillColor(color)
   }
 
+  const downloadImage = () => {
+    const a = document.createElement('a')
+    a.href = canvasState.canvas.toDataURL()
+    a.download = canvasState.sessionid + '.jpg'
+    document.body.appendChild(a)
+    a.click()
+    document.body.removeChild(a)
+  }
+
   return (
     <div className='toolbar'>
       <button className='toolbar__btn brush' onClick={() => toolbarState.setTool(new Brush(canvasState.canvas, canvasState.socket, canvasState.sessionid))}>
@@ -45,7 +54,7 @@ const ToolBar = () => {
       <button className='toolbar__btn redo' onClick={() => canvasState.redo()}>
         <img src={redo} alt="redo" />
       </button>
-      <button className='toolbar__btn save'>
+      <button className='toolbar__btn save' onClick={() => downloadImage()}>
         <img src={save} alt="save" />
       </button>
     </div>

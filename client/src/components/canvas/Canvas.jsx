@@ -9,6 +9,7 @@ import toolbarState from '@/store/toolbarState'
 import Rect from '@/tools/Rect'
 import axios from 'axios'
 import Circle from '../../tools/Circle'
+import Line from '../../tools/Line'
 
 const Canvas = observer(() => {
   const canvasRef = React.useRef();
@@ -88,6 +89,11 @@ const Canvas = observer(() => {
 
       case "circle": {
         Circle.staticDraw(ctx, data.figure.x, data.figure.y, data.figure.radius, data.figure.color)
+        break;
+      }
+
+      case "line": {
+        Line.staticDraw(ctx, data.figure.startX, data.figure.startY, data.figure.endX, data.figure.endY)
         break;
       }
 

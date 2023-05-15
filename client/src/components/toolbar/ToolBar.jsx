@@ -45,7 +45,7 @@ const ToolBar = () => {
       <button className='toolbar__btn eraser' onClick={() => toolbarState.setTool(new Eraser(canvasState.canvas))}>
         <img src={eraser} alt="eraser" />
       </button>
-      <button className='toolbar__btn line' onClick={() => toolbarState.setTool(new Line(canvasState.canvas))}>
+      <button className='toolbar__btn line' onClick={() => toolbarState.setTool(new Line(canvasState.canvas, canvasState.socket, canvasState.sessionid))}>
         <img src={line} alt="line" />
       </button>
       <input type="color" style={{marginLeft: 15}} onChange={e => changeColor(e.target.value)}/>

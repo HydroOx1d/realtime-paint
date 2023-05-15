@@ -8,6 +8,7 @@ import Brush from '@/tools/Brush'
 import toolbarState from '@/store/toolbarState'
 import Rect from '@/tools/Rect'
 import axios from 'axios'
+import Circle from '../../tools/Circle'
 
 const Canvas = observer(() => {
   const canvasRef = React.useRef();
@@ -82,6 +83,11 @@ const Canvas = observer(() => {
 
       case "rect": {
         Rect.staticDraw(ctx, data.figure.x, data.figure.y, data.figure.width, data.figure.height, data.figure.color)
+        break;
+      }
+
+      case "circle": {
+        Circle.staticDraw(ctx, data.figure.x, data.figure.y, data.figure.radius, data.figure.color)
         break;
       }
 

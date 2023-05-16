@@ -35,6 +35,9 @@ export default class Rect extends Tool {
         type: 'finish'
       }
     }))
+
+    this.width = 0
+    this.height = 0
   }
 
   mouseDownHandler(e) {
@@ -54,8 +57,6 @@ export default class Rect extends Tool {
       this.height = currentY - this.startY
 
       this.draw(this.startX, this.startY, this.width, this.height)
-      this.width = 0
-      this.height = 0
     }
   }
 

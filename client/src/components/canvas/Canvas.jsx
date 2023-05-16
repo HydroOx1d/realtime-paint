@@ -83,6 +83,7 @@ const Canvas = observer(() => {
       }
 
       case "rect": {
+        console.log(data.figure)
         Rect.staticDraw(ctx, data.figure.x, data.figure.y, data.figure.width, data.figure.height, data.figure.color)
         break;
       }

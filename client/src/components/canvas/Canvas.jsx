@@ -10,6 +10,7 @@ import Rect from '@/tools/Rect'
 import axios from 'axios'
 import Circle from '../../tools/Circle'
 import Line from '../../tools/Line'
+import Eraser from '../../tools/Eraser'
 
 const Canvas = observer(() => {
   const canvasRef = React.useRef();
@@ -95,6 +96,11 @@ const Canvas = observer(() => {
 
       case "line": {
         Line.staticDraw(ctx, data.figure.startX, data.figure.startY, data.figure.endX, data.figure.endY)
+        break;
+      }
+
+      case "eraser": {
+        Eraser.clear(ctx, data.figure.x, data.figure.y, data.figure.eraserWidth, data.figure.eraserHeight)
         break;
       }
 

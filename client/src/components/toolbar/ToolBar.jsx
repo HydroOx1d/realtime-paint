@@ -42,7 +42,7 @@ const ToolBar = () => {
       <button className='toolbar__btn circle' onClick={() => toolbarState.setTool(new Circle(canvasState.canvas, canvasState.socket, canvasState.sessionid))}>
         <img src={circle} alt="circle" />
       </button>
-      <button className='toolbar__btn eraser' onClick={() => toolbarState.setTool(new Eraser(canvasState.canvas))}>
+      <button className='toolbar__btn eraser' onClick={() => toolbarState.setTool(new Eraser(canvasState.canvas, canvasState.socket, canvasState.sessionid))}>
         <img src={eraser} alt="eraser" />
       </button>
       <button className='toolbar__btn line' onClick={() => toolbarState.setTool(new Line(canvasState.canvas, canvasState.socket, canvasState.sessionid))}>
